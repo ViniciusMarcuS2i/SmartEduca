@@ -1,7 +1,6 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { StatusBar } from "expo-status-bar";
-import { HomeCategoryItem } from "../../../components/HomeCategoryItem/intex";
 import { HomeCategories } from "../../../components/HomeCategories";
 
 export function Home() {

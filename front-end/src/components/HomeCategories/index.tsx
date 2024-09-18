@@ -13,7 +13,11 @@ export function HomeCategories() {
         icon="calendar-outline"
         text="Calendário"
       />
-      <HomeCategoryItem icon="person-outline" text="Perfil" />
+      <HomeCategoryItem
+        onPress={() => navigator.navigate("profile" as never)}
+        icon="person-outline"
+        text="Perfil"
+      />
       <HomeCategoryItem icon="notifications-outline" text="Notificações" />
       <HomeCategoryItem icon="aperture-outline" text="Exemplo" />
       <HomeCategoryItem icon="cog-outline" text="Config" />
