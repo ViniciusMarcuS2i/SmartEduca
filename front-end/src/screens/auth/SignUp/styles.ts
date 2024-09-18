@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   inputSeparator: {
     width: "100%",
-    gap: 20,
+    gap: 16,
     marginTop: 25,
     marginBottom: 50,
   },

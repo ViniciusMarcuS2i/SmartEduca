@@ -3,18 +3,17 @@ import { SplashScreen } from "./src/screens/SplashScreen";
 
 import { StatusBar } from "expo-status-bar";
 import {
-  Exo_400Regular,
-  Exo_600SemiBold,
-  Exo_700Bold,
-} from "@expo-google-fonts/exo";
-import { Routes } from "./src/routes/Routex";
-import { Home } from "./src/screens/app/Home";
+  Poppins_400Regular,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+} from "@expo-google-fonts/poppins";
+import { Routes } from "./src/routes/Routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    Exo_400Regular,
-    Exo_600SemiBold,
-    Exo_700Bold,
+    Poppins_400Regular,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
   });
 
   return (

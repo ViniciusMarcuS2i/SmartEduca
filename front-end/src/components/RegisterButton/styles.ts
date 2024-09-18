@@ -3,8 +3,8 @@ import { THEME } from "../../theme/theme";
 
 export const styles = StyleSheet.create({
   signUpButton: {
-    height: 61,
-    paddingHorizontal: 100,
+    height: 51,
+    paddingHorizontal: 50,
     backgroundColor: `${THEME.COLORS.BLUE_50}`,
     borderRadius: 12,
     justifyContent: "center",
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     color: `${THEME.COLORS.WHITE}`,
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: `${THEME.FONT.SEMI_BOLD}`,
   },
 });

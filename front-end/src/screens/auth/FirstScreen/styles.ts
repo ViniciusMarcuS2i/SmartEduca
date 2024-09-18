@@ -14,14 +14,13 @@ export const styles = StyleSheet.create({
     width: 324,
   },
   h1: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: `${THEME.FONT.BOLD}`,
     marginTop: 35,
   },
   p: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: `${THEME.FONT.REGULAR}`,
-    marginTop: 16,
     marginBottom: 127,
     color: `${THEME.COLORS.GRAY_500}`,
   },

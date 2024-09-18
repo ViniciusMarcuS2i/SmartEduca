@@ -52,6 +52,7 @@ export function SignUp() {
     resolver: zodResolver(userSchema),
   });
   const navigator = useNavigation();
+
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={signUpImage} />
@@ -99,6 +100,7 @@ export function SignUp() {
             control={control}
             render={({ field: { onChange, value } }) => (
               <TextInput
+                secureTextEntry
                 onChangeText={onChange}
                 value={value}
                 placeholder="Digite sua senha"

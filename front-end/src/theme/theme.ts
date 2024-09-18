@@ -6,13 +6,13 @@ export const THEME = {
     BACKGROUND: "#F4F5F9",
 
     BLUE_50: "#006fff",
-    BLUE_150: "#5667FD",
+    BLUE_150: "#4894FE",
     BLUE_700: "#364356",
     GRAY_500: "#636D77",
   },
   FONT: {
-    REGULAR: "Exo_400Regular",
-    SEMI_BOLD: "Exo_600SemiBold",
-    BOLD: "Exo_700Bold",
+    REGULAR: "Poppins_400Regular",
+    SEMI_BOLD: "Poppins_600SemiBold",
+    BOLD: "Poppins_700Bold",
   },
 };
