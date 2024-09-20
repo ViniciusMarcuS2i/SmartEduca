@@ -1,9 +1,11 @@
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { StatusBar } from "expo-status-bar";
 import { HomeCategories } from "../../../components/HomeCategories";
+import { useNavigation } from "@react-navigation/native";
 
 export function Home() {
+  const navigator = useNavigation();
   return (
     <>
       <View style={styles.container}>
@@ -12,7 +14,10 @@ export function Home() {
             <Text style={styles.welcomeText}>Bem-vindo!</Text>
             <Text style={styles.nameText}>Hi Fulano!</Text>
           </View>
-          <TouchableOpacity activeOpacity={0.7}>
+          <TouchableOpacity
+            onPress={() => navigator.navigate("profile" as never)}
+            activeOpacity={0.7}
+          >
             <Image
               resizeMode="cover"
               style={styles.userProfileImage}
@@ -21,6 +26,7 @@ export function Home() {
           </TouchableOpacity>
         </View>
         <View style={styles.noticeContainer}></View>
+
         <Text style={styles.categoriesListTitle}>Explore</Text>
         <HomeCategories />
       </View>

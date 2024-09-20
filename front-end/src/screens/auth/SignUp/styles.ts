@@ -82,7 +82,6 @@ export const styles = StyleSheet.create({
     marginTop: -8,
     fontSize: 14,
     color: "red",
-    fontFamily: "Exo_400Regular",
   },
   label: {
     color: `${THEME.COLORS.GRAY_500}`,
