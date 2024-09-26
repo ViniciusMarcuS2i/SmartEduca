@@ -79,6 +79,6 @@ export const styles = StyleSheet.create({
   detailsContainerInfosText: {
     fontSize: 14,
     fontFamily: THEME.FONT.SEMI_BOLD,
-    color: THEME.COLORS.GRAY_500,
+    color: THEME.COLORS.BLACK,
   },
 });

@@ -1,4 +1,4 @@
-import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { THEME } from "../../../theme/theme";
@@ -7,7 +7,13 @@ import { useNavigation } from "@react-navigation/native";
 
 export function Profile() {
   const navigator = useNavigation();
-  const nome = "nome";
+  const userData = {
+    fatherName: "Marcelo Nonato",
+    motherName: "Francimeire Castilho",
+    birthDate: "19/12/2020",
+    CPF: "000.000.000-00",
+  };
+
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -23,7 +29,7 @@ export function Profile() {
         <TouchableOpacity style={styles.settings}>
           <IonIcons
             size={22}
-            name="settings-sharp"
+            name="pencil-sharp"
             color={THEME.COLORS.BLUE_150}
           />
         </TouchableOpacity>
@@ -37,12 +43,28 @@ export function Profile() {
       </LinearGradient>
       <View style={styles.detailsContainer}>
         <Text style={styles.detailsContainerTitle}>Detalhes do Aluno </Text>
-        <Text style={styles.detailsContainerInfosText}>Nome do Pai: </Text>
-        <Text style={styles.detailsContainerInfosText}>Nome da Mãe: </Text>
         <Text style={styles.detailsContainerInfosText}>
-          Data de Nascimento:
+          Nome do Pai:{" "}
+          <Text style={{ color: THEME.COLORS.GRAY_500 }}>
+            {userData.fatherName}
+          </Text>
         </Text>
-        <Text style={styles.detailsContainerInfosText}>CPF: </Text>
+        <Text style={styles.detailsContainerInfosText}>
+          Nome da Mãe:{" "}
+          <Text style={{ color: THEME.COLORS.GRAY_500 }}>
+            {userData.motherName}
+          </Text>
+        </Text>
+        <Text style={styles.detailsContainerInfosText}>
+          Data de Nascimento:{" "}
+          <Text style={{ color: THEME.COLORS.GRAY_500 }}>
+            {userData.birthDate}
+          </Text>
+        </Text>
+        <Text style={styles.detailsContainerInfosText}>
+          CPF:{" "}
+          <Text style={{ color: THEME.COLORS.GRAY_500 }}>{userData.CPF}</Text>
+        </Text>
       </View>
     </View>
   );

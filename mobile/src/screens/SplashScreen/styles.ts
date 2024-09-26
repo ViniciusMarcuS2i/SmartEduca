@@ -8,9 +8,8 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  logoText: {
-    fontFamily: THEME.FONT.BOLD,
-    color: THEME.COLORS.WHITE,
-    fontSize: 40,
+  logoImage: {
+    width: 300,
+    height: 100,
   },
 });
