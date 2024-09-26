@@ -24,19 +24,35 @@ export function Home() {
         <div className="flex justify-between items-center">
           <p className="text-white text-3xl font-bold">SmartEduca</p>
           <nav className="max-xl:hidden flex gap-10">
-            <a className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]">
+            <a
+              href="https://www.instagram.com/chicopretoam/"
+              target="_blank"
+              className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
+            >
               Aprendizado
             </a>
-            <a className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]">
+            <a
+              href="https://www.instagram.com/chicopretoam/"
+              target="_blank"
+              className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
+            >
               Cuidados
             </a>
             <a className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]">
               Contato
             </a>
-            <a className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]">
+            <a
+              href="https://www.instagram.com/chicopretoam/"
+              target="_blank"
+              className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
+            >
               Preços
             </a>
-            <a className=" font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]">
+            <a
+              href="https://www.instagram.com/chicopretoam/"
+              target="_blank"
+              className=" font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
+            >
               Quero saber mais
             </a>
           </nav>
@@ -136,24 +152,24 @@ export function Home() {
       </div>
       <div className="w-full bg-[#1FCDFF] pt-20 lg:px-48 px-10 relative">
         <h1 className="lg:text-start lg:text-4xl text-2xl text-center text-[#FFFF00] ">
-          Chico Preto:
+          Saiba como está seu filho:
           <br />
           <h1 className="text-2xl lg:text-4xl font-extrabold z-10 relative">
-            Por que votar no Chico Preto?
+            Corinthians 2x Campeão Mundial
           </h1>
         </h1>
         <ul className="text-start flex gap-4 pb-24 flex-col mt-12">
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
-            Ele matou o Lula
+            Lula é bandido demais
           </li>
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
-            Foi quem deu PC de graça pra geral
+            Bolsonaro ladrão de joias kakakakka
           </li>
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
-            Confia na minha call, vota nele
+            Vota no Chico Preto 22777
           </li>
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
