@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import crianca from "@/assets/crianca.png";
 import criancaMorena from "@/assets/estudante.png";
+import lampSvg from "@/assets/lampIcon.svg";
 
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 
@@ -17,6 +18,10 @@ export function Home() {
   return (
     <>
       <header className="flex flex-col px-6 lg:px-48 pt-6 pb-16 bg-[#1FCDFF] relative">
+        <img
+          className="w-32 object-cover absolute right-36 bottom-56 max-lg:hidden"
+          src={lampSvg}
+        />
         <img
           className="max-lg:hidden object-cover w-96 absolute -bottom-8 right-40"
           src={criancaMorena}
@@ -106,7 +111,7 @@ export function Home() {
       <h1 className="lg:text-4xl text-center text-2xl text-[#006fff] font-bold">
         Fique por dentro de tudo!
       </h1>
-      <div className="p-4 pb-14 mt-16 grid grid-cols-1 px-6 gap-4 lg:px-48 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="p-4 pb-14 mt-16 grid grid-cols-1 px-6 gap-4 lg:px-48 lg:grid-cols-2 xl:grid-cols-3 z-10 relative">
         <div className="bg-[#f8f8f8] rounded-md w-full overflow-hidden flex items-center py-5 flex-col px-8 gap-8">
           <img
             className="w-72 h-72"
@@ -155,17 +160,17 @@ export function Home() {
           Saiba como está seu filho:
           <br />
           <h1 className="text-2xl lg:text-4xl font-extrabold z-10 relative">
-            Corinthians 2x Campeão Mundial
+            CHICO PRETO
           </h1>
         </h1>
         <ul className="text-start flex gap-4 pb-24 flex-col mt-12">
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
-            Lula é bandido demais
+            Estará junto da evolução de seu filho
           </li>
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
-            Bolsonaro ladrão de joias kakakakka
+            Aqui você está junto de seu filho
           </li>
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
@@ -173,7 +178,7 @@ export function Home() {
           </li>
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
-            50tão na mão se votar nele
+            22777
           </li>
         </ul>
         <img

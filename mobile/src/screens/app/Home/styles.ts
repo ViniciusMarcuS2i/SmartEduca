@@ -42,11 +42,11 @@ export const styles = StyleSheet.create({
     paddingTop: 18,
   },
   noticeContainer: {
+    marginVertical: 26,
     marginHorizontal: 18,
     height: 120,
     borderRadius: 18,
-    marginTop: 26,
-    marginBottom: 26,
+
     backgroundColor: THEME.COLORS.BLUE_150,
     shadowColor: "#000",
     shadowOffset: {

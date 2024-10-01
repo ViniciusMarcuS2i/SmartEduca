@@ -25,6 +25,7 @@ export function Home() {
             />
           </TouchableOpacity>
         </View>
+
         <View style={styles.noticeContainer}></View>
 
         <Text style={styles.categoriesListTitle}>Explore</Text>
