@@ -1,3 +1,5 @@
+import "react-native-reanimated";
+import "react-native-gesture-handler";
 import { useFonts } from "expo-font";
 import { SplashScreen } from "./src/screens/SplashScreen";
 

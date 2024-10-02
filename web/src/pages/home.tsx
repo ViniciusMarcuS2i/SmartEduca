@@ -65,10 +65,10 @@ export function Home() {
             <SheetTrigger className="xl:hidden">
               {" "}
               <Button
-                className="bg-[#006fff] hover:bg-blue-800 active:opacity-60"
+                className="bg-[#fff] hover:bg-blue-800 active:opacity-60"
                 size="icon"
               >
-                <List color="white" />
+                <List color="#1fcdff" />
               </Button>
             </SheetTrigger>
             <SheetContent className="w-full">
@@ -178,7 +178,7 @@ export function Home() {
           </li>
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
-            22777
+            Corinthians 2x campeão mundiaaaaaal
           </li>
         </ul>
         <img
