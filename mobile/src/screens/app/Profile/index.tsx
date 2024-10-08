@@ -1,9 +1,11 @@
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { THEME } from "../../../theme/theme";
 import IonIcons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
+import { ProfileModal } from "../../../components/ProfileModal";
+import { useState } from "react";
 
 export function Profile() {
   const navigator = useNavigation();
@@ -14,8 +16,11 @@ export function Profile() {
     CPF: "000.000.000-00",
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <View style={styles.container}>
+      <ProfileModal onPress={() => setIsOpen(!isOpen)} isOpen={isOpen} />
       <LinearGradient
         colors={[THEME.COLORS.BLUE_150, "#000"]}
         style={styles.gradient}
@@ -26,7 +31,10 @@ export function Profile() {
         >
           <IonIcons size={22} name="arrow-back" color={THEME.COLORS.BLUE_150} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.settings}>
+        <TouchableOpacity
+          onPress={() => setIsOpen(!isOpen)}
+          style={styles.settings}
+        >
           <IonIcons
             size={22}
             name="pencil-sharp"

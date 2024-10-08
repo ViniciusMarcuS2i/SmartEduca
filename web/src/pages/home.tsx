@@ -11,6 +11,7 @@ import {
 import crianca from "@/assets/crianca.png";
 import criancaMorena from "@/assets/estudante.png";
 import lampSvg from "@/assets/lampIcon.svg";
+import { motion } from "framer-motion";
 
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 
@@ -18,11 +19,16 @@ export function Home() {
   return (
     <>
       <header className="flex flex-col px-6 lg:px-48 pt-6 pb-16 bg-[#1FCDFF] relative">
-        <img
+        <motion.img
+          initial={{ opacity: 0, scale: 0.2 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
           className="w-32 object-cover absolute right-36 bottom-56 max-lg:hidden"
           src={lampSvg}
         />
-        <img
+        <motion.img
+          initial={{ translateX: 600 }}
+          animate={{ translateX: 0 }}
           className="max-lg:hidden object-cover w-96 absolute -bottom-8 right-40"
           src={criancaMorena}
         />
@@ -86,14 +92,23 @@ export function Home() {
             </SheetContent>
           </Sheet>
         </div>
-        <h1 className="z-10 lg:mt-32 lg:self-start lg:text-start lg:text-5xl text-center text-2xl text-[#FFFF00] font-extrabold mt-10 self-center">
+        <motion.h1
+          initial={{ translateX: -500 }}
+          animate={{ translateX: 0 }}
+          className="z-10 lg:mt-32 lg:self-start lg:text-start lg:text-5xl text-center text-2xl text-[#FFFF00] font-extrabold mt-10 self-center"
+        >
           Sistema de <br />
           Gestão Parental
-        </h1>
-        <p className="z-10 lg:w-96 lg:text-start text-[#fff] text-center mt-6">
+        </motion.h1>
+        <motion.p
+          initial={{ translateX: -600 }}
+          animate={{ translateX: 0 }}
+          transition={{ delay: 0.2 }}
+          className="z-10 lg:w-96 lg:text-start text-[#fff] text-center mt-6"
+        >
           Como posso eu voar sem ter asas? Por que voaria eu sem asas? Deveria
           eu mesmo, de mim memso, voar sem ter asas alguma?
-        </p>
+        </motion.p>
       </header>
       <a
         target="_blank"
@@ -112,7 +127,12 @@ export function Home() {
         Fique por dentro de tudo!
       </h1>
       <div className="p-4 pb-14 mt-16 grid grid-cols-1 px-6 gap-4 lg:px-48 lg:grid-cols-2 xl:grid-cols-3 z-10 relative">
-        <div className="bg-[#f8f8f8] rounded-md w-full overflow-hidden flex items-center py-5 flex-col px-8 gap-8">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          className="bg-[#f8f8f8] rounded-md w-full overflow-hidden flex items-center py-5 flex-col px-8 gap-8"
+        >
           <img
             className="w-72 h-72"
             src="https://www.euroschoolindia.com/wp-content/uploads/2023/07/importance-of-education.jpg"
@@ -129,8 +149,14 @@ export function Home() {
           >
             Baixe nosso Aplicativo
           </Button>
-        </div>
-        <div className="bg-[#f8f8f8] rounded-md w-full overflow-hidden flex items-center py-5 flex-col px-8 gap-8">
+        </motion.div>
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+          className="bg-[#f8f8f8] rounded-md w-full overflow-hidden flex items-center py-5 flex-col px-8 gap-8"
+        >
           <img
             className="w-72 h-72"
             src="https://www.euroschoolindia.com/wp-content/uploads/2023/07/importance-of-education.jpg"
@@ -141,8 +167,14 @@ export function Home() {
             Como voar sem ter asas, como posso eu voar? Se asa não tenho?
             Deveria eu voar, sem voar voando? Porque a vida é feita de avoar
           </p>
-        </div>
-        <div className="bg-[#f8f8f8] rounded-md w-full overflow-hidden flex items-center py-5 flex-col px-8 gap-8">
+        </motion.div>
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
+          className="bg-[#f8f8f8] rounded-md w-full overflow-hidden flex items-center py-5 flex-col px-8 gap-8"
+        >
           <img
             className="w-72 h-72"
             src="https://www.euroschoolindia.com/wp-content/uploads/2023/07/importance-of-education.jpg"
@@ -153,14 +185,14 @@ export function Home() {
             Como voar sem ter asas, como posso eu voar? Se asa não tenho?
             Deveria eu voar, sem voar voando? Porque a vida é feita de avoar
           </p>
-        </div>
+        </motion.div>
       </div>
       <div className="w-full bg-[#1FCDFF] pt-20 lg:px-48 px-10 relative">
         <h1 className="lg:text-start lg:text-4xl text-2xl text-center text-[#FFFF00] ">
           Saiba como está seu filho:
           <br />
           <h1 className="text-2xl lg:text-4xl font-extrabold z-10 relative">
-            CHICO PRETO
+            SOMETHING
           </h1>
         </h1>
         <ul className="text-start flex gap-4 pb-24 flex-col mt-12">
@@ -173,15 +205,16 @@ export function Home() {
             Aqui você está junto de seu filho
           </li>
           <li className="gap-3 text-white flex flex-row">
-            <CheckmarkCircle color="white" />
-            Vota no Chico Preto 22777
+            <CheckmarkCircle color="white" />I WANNA FLY
           </li>
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
             Corinthians 2x campeão mundiaaaaaal
           </li>
         </ul>
-        <img
+        <motion.img
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
           className="absolute max-lg:hidden object-contain h-96 right-0 bottom-0"
           src={crianca}
         />

@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   signUpButton: {
     height: 51,
     paddingHorizontal: 50,
-    backgroundColor: `${THEME.COLORS.BLUE_50}`,
+    backgroundColor: `${THEME.COLORS.BLUE_150}`,
     borderRadius: 12,
     justifyContent: "center",
     alignItems: "center",

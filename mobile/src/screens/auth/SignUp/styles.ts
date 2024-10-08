@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: `${THEME.COLORS.BACKGROUND}`,
-    paddingTop: 23,
+    paddingTop: 28,
     flexDirection: "column",
     alignItems: "center",
   },

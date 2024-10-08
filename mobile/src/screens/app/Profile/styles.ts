@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: THEME.COLORS.BACKGROUND,
     paddingTop: 70,
+    position: "relative",
   },
   gradient: {
     marginHorizontal: 18,

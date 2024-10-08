@@ -14,6 +14,7 @@ import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../../../lib/api";
+import LottieView from "lottie-react-native";
 
 const userSchema = z.object({
   name: z.string().min(3, "Coloque um nome válido"),
@@ -55,7 +56,13 @@ export function SignUp() {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={signUpImage} />
+      <LottieView
+        loop
+        autoPlay
+        style={styles.image}
+        resizeMode="contain"
+        source={require("../../../assets/studentGiff.json")}
+      />
       <View style={styles.inputSeparator}>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Nome e Sobrenome</Text>
