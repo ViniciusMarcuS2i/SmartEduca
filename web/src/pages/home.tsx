@@ -188,13 +188,19 @@ export function Home() {
         </motion.div>
       </div>
       <div className="w-full bg-[#1FCDFF] pt-20 lg:px-48 px-10 relative">
-        <h1 className="lg:text-start lg:text-4xl text-2xl text-center text-[#FFFF00] ">
+        <motion.h1
+          initial={{ translateY: 100, opacity: 0 }}
+          whileInView={{ translateY: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
+          className="lg:text-start lg:text-4xl text-2xl text-center text-[#FFFF00] "
+        >
           Saiba como está seu filho:
           <br />
           <h1 className="text-2xl lg:text-4xl font-extrabold z-10 relative">
             SOMETHING
           </h1>
-        </h1>
+        </motion.h1>
         <ul className="text-start flex gap-4 pb-24 flex-col mt-12">
           <li className="gap-3 text-white flex flex-row">
             <CheckmarkCircle color="white" />
@@ -215,6 +221,7 @@ export function Home() {
         <motion.img
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.2 }}
           className="absolute max-lg:hidden object-contain h-96 right-0 bottom-0"
           src={crianca}
         />

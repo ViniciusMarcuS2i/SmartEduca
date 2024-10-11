@@ -4,7 +4,7 @@ import { AppRoutes } from "./app.routes";
 import { useState } from "react";
 
 export function Routes() {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   return (
     <NavigationContainer>
       {auth ? <AuthRoutes /> : <AppRoutes />}
