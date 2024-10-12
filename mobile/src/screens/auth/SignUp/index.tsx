@@ -15,6 +15,8 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../../../lib/api";
 import LottieView from "lottie-react-native";
+import auth from "@react-native-firebase/auth";
+import { getFirestore } from "@react-native-firebase/firestore";
 
 const userSchema = z.object({
   name: z.string().min(3, "Coloque um nome válido"),
@@ -26,17 +28,33 @@ type UserSchema = z.infer<typeof userSchema>;
 
 export function SignUp() {
   async function onSubmit(data: UserSchema) {
-    try {
-      console.log(data);
-      const response = await api.post("/users", data);
-      console.log("Usuário criado:", response.data);
-      Alert.alert("Conta criada com sucesso!");
-      reset();
-      navigator.navigate("signIn" as never);
-    } catch (error) {
-      console.error("Erro ao criar usuário:", error);
-      Alert.alert("Já existe um usúario com esse e-mail!");
-    }
+    const createUser: any = await auth()
+      .createUserWithEmailAndPassword(data.email, data.password)
+      .then(() => {
+        Alert.alert("Conta criada com sucesso!");
+        reset();
+        navigator.navigate("signIn" as never);
+      })
+      .catch((error) => {
+        console.error("Erro ao criar usuário:", error);
+        Alert.alert("Já existe um usúario com esse e-mail!");
+      });
+    await getFirestore().collection("users").doc(createUser.user.uid).set({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    });
+    // try {
+    //   console.log(data);
+    //   const response = await api.post("/users", data);
+    //   console.log("Usuário criado:", response.data);
+    //   Alert.alert("Conta criada com sucesso!");
+    //   reset();
+    //   navigator.navigate("signIn" as never);
+    // } catch (error) {
+    //   console.error("Erro ao criar usuário:", error);
+    //   Alert.alert("Já existe um usúario com esse e-mail!");
+    // }
   }
 
   const {
