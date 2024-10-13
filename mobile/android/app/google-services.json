@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "708757141137",
+    "project_id": "smarteducaapp",
+    "storage_bucket": "smarteducaapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708757141137:android:20c700d0baafde80b83130",
+        "android_client_info": {
+          "package_name": "com.marcus.uninorte"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCliZzqxDmK38lj1kSDR2NfqDwRpx1cwno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

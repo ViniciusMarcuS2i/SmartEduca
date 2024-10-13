@@ -4,6 +4,8 @@ import { styles } from "./styles";
 import Material from "@expo/vector-icons/MaterialIcons";
 import { THEME } from "../../theme/theme";
 import { MotiPressable } from "moti/interactions";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 
 interface ModalI {
   isOpen: boolean;
@@ -11,6 +13,8 @@ interface ModalI {
 }
 
 export function ProfileModal({ isOpen, onPress }: ModalI) {
+  const { userData } = useContext(AuthContext);
+
   return (
     <Modal
       style={styles.modal}

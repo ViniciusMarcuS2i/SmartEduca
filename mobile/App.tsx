@@ -10,6 +10,7 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 import { Routes } from "./src/routes/Routes";
+import { ContextProvider } from "./src/context/authContext";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,9 +20,9 @@ export default function App() {
   });
 
   return (
-    <>
+    <ContextProvider>
       <StatusBar translucent />
       {fontsLoaded ? <Routes /> : <SplashScreen />}
-    </>
+    </ContextProvider>
   );
 }

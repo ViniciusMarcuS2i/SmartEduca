@@ -1,12 +1,16 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { StatusBar } from "expo-status-bar";
 import { HomeCategories } from "../../../components/HomeCategories";
 import { useNavigation } from "@react-navigation/native";
 import { MotiImage, MotiText, MotiView } from "moti";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../context/authContext";
 
 export function Home() {
   const navigator = useNavigation();
+  const { userData } = useContext(AuthContext);
+
   return (
     <>
       <View style={styles.container}>
@@ -21,7 +25,7 @@ export function Home() {
               }}
               style={styles.welcomeText}
             >
-              Bem-vindo!
+              Bem vindo!
             </MotiText>
             <MotiText
               from={{
@@ -33,7 +37,7 @@ export function Home() {
               delay={200}
               style={styles.nameText}
             >
-              Hi Fulano!
+              Olá, {userData && userData.name}!
             </MotiText>
           </View>
           <TouchableOpacity

@@ -3,6 +3,7 @@ import { HomeCategoryItem } from "../HomeCategoryItem/intex";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
+import auth from "@react-native-firebase/auth";
 
 export function HomeCategories() {
   const navigator = useNavigation();
@@ -20,7 +21,11 @@ export function HomeCategories() {
         text="Perfil"
       />
       <HomeCategoryItem icon="notifications-outline" text="Notificações" />
-      <HomeCategoryItem icon="aperture-outline" text="Exemplo" />
+      <HomeCategoryItem
+        icon="aperture-outline"
+        text="Exemplo"
+        onPress={() => auth().signOut()}
+      />
       <HomeCategoryItem icon="cog-outline" text="Config" />
     </View>
   );
