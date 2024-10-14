@@ -20,15 +20,16 @@ type UserSchema = z.infer<typeof userSchema>;
 export function SignUp() {
   async function onSubmit(data: UserSchema) {
     try {
+      const email = data.email.trim().toLowerCase();
       const createUser = await auth().createUserWithEmailAndPassword(
-        data.email,
+        email,
         data.password
       );
       if (createUser && createUser.user) {
         reset();
         firestore().collection("users").doc(createUser.user.uid).set({
           name: data.name,
-          email: data.email,
+          email: email,
           password: data.password,
         });
       }

@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { HomeCategoryItem } from "../HomeCategoryItem/intex";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+
 import auth from "@react-native-firebase/auth";
 
 export function HomeCategories() {

@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   Alert,
   Image,
   Text,
@@ -13,19 +14,43 @@ import { useNavigation } from "@react-navigation/native";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import auth from "@react-native-firebase/auth";
+import { firebase } from "@react-native-firebase/firestore";
+import { useState } from "react";
 
 const userSchema = z.object({
   email: z.string().email("Coloque um email válido"),
-  password: z.string().min(6, "Senha incorreta"),
+  password: z.string().min(6, "Digite sua senha"),
 });
 
 type UserSchema = z.infer<typeof userSchema>;
 
 export function SignIn() {
-  const onSubmit = (data: UserSchema) => {
-    console.log(data);
-    reset();
-    Alert.alert("ADVINHA?", "TEU APP NÃO PRESTA SEU PEDAÇO DE MERDA");
+  const [loading, setLoading] = useState(false);
+  const onSubmit = async (data: UserSchema) => {
+    try {
+      setLoading(true);
+      const email = data.email.trim().toLowerCase();
+      const userExists = await firebase
+        .firestore()
+        .collection("users")
+        .where("email", "==", email)
+        .get();
+      if (userExists.empty) {
+        Alert.alert("Usuário não encontrado!");
+        console.log(userExists);
+        console.log(email);
+        setLoading(false);
+      } else {
+        const user = await auth().signInWithEmailAndPassword(
+          data.email,
+          data.password
+        );
+        return user;
+      }
+    } catch (error) {
+      Alert.alert("Úsuario ou senha incorretos!");
+    }
   };
 
   const {
@@ -88,7 +113,15 @@ export function SignIn() {
         </View>
       </View>
       <TouchableOpacity activeOpacity={0.7} onPress={handleSubmit(onSubmit)}>
-        <RegisterButton text="Entrar" />
+        <RegisterButton
+          text={
+            loading ? (
+              <ActivityIndicator size="large" color="white" />
+            ) : (
+              "Entrar"
+            )
+          }
+        />
       </TouchableOpacity>
       <View style={styles.noAccount}>
         <Text style={styles.noAccountText}>Não tem conta?</Text>

@@ -19,14 +19,14 @@ interface IUserData {
 }
 
 export function ContextProvider({ children }: any) {
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState();
   const [connectedUser, setConnectedUser] =
     useState<FirebaseAuthTypes.User | null>(null);
   const [userData, setUserData] = useState<IUserData | null>(null);
 
   useEffect(() => {
     const subcribe = auth().onAuthStateChanged((user: any) => {
-      setIsAuth(!!user);
+      setIsAuth(user);
       const u: any = auth().currentUser;
       setConnectedUser(u);
     });
