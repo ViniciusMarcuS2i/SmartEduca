@@ -1,0 +1,14 @@
+export const google = require("./google.png");
+export const boyBackground = require("./apresentation-screen-boy.png");
+export const firstKid = require("./firstCarouselKid.png");
+export const secondKid = require("./secondCarouselKid.png");
+export const thirdKid = require("./thirdCarouselKid.png");
+export const logo = require("./logo.png");
+export const splashLogo = require("./splashLogo.png");
+export const checked = require("./checked.png");
+export const historySubject = require("./historySubject.png");
+export const mathSubject = require("./mathSubject.png");
+export const portugueseSubject = require("./portugueseSubject.png");
+export const banner = require("./banner.png");
+export const blueBoyIcon = require("./blueBoyIcon.png");
+export const grayBoyIcon = require("./grayBoyIcon.png");

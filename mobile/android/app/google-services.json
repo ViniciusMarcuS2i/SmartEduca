@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "708757141137",
     "project_id": "smarteducaapp",
-    "storage_bucket": "smarteducaapp.appspot.com"
+    "storage_bucket": "smarteducaapp.firebasestorage.app"
   },
   "client": [
     {
@@ -12,7 +12,12 @@
           "package_name": "com.marcus.uninorte"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "708757141137-61aprbrnj74vs67ko5quvj69bctid7qa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCliZzqxDmK38lj1kSDR2NfqDwRpx1cwno"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708757141137-61aprbrnj74vs67ko5quvj69bctid7qa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
