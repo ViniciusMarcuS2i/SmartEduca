@@ -16,9 +16,9 @@ interface User {
 interface SidebarContextProps {
   index: number;
   setIndex: (index: number) => void;
-  user: any;
-  currentUser: any;
-  setUser: (user: any) => void;
+  user: User | null;
+  currentUser: User | null;
+  setUser: (user: User | null) => void;
 }
 
 export const SidebarContext = createContext<SidebarContextProps>({
@@ -36,12 +36,12 @@ export const SidebarContextProvider = ({
 }) => {
   const [index, setIndex] = useState(1);
 
-  const [user, setUser] = useState<any>(null);
-  const [currentUser, setCurrentUser] = useState();
+  const [user, setUser] = useState<User | null>(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setUser(user as any);
+      setUser(user as never);
     }
   });
 
@@ -51,7 +51,7 @@ export const SidebarContextProvider = ({
       where("email", "==", user?.email),
     );
     const getUser = await getDocs(u);
-    setCurrentUser(getUser as any);
+    setCurrentUser(getUser.docs[0].data() as User);
   }
 
   useEffect(() => {
