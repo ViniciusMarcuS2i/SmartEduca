@@ -30,47 +30,47 @@ export function Header() {
       />
       <div className="flex justify-between items-center">
         <p className="text-white text-3xl font-bold">SmartEduca</p>
-        <nav className="max-xl:hidden flex gap-10">
+        <nav className="max-xl:hidden items-center flex gap-10">
           <a
-            href="https://www.instagram.com/chicopretoam/"
             target="_blank"
             className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
           >
             Aprendizado
           </a>
           <a
-            href="https://www.instagram.com/chicopretoam/"
             target="_blank"
             className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
           >
             Cuidados
           </a>
           <a className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]">
-            Contato
-          </a>
-          <a
-            href="https://www.instagram.com/chicopretoam/"
-            target="_blank"
-            className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
-          >
             Preços
           </a>
           <a
-            href="https://www.instagram.com/chicopretoam/"
+            href="https://smarteduca-admin.vercel.app/sign-in"
             target="_blank"
-            className=" font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
+            className="font-light text-white cursor-pointer border-b-2 border-transparent transition-all duration-200 hover:border-[#FFFF00] hover:text-[#FFFF00]"
           >
-            Quero saber mais
+            Sou professor/gestor
+          </a>
+          <a
+            href="https://www.mediafire.com/file/3h2zlwwrpkykul6/app-release.apk/file"
+            target="_blank"
+            className="bg-primary font-light text-white cursor-pointer "
+          >
+            <Button className="border-[1px] hover:border-secondary hover:text-secondary border-white  text-white">
+              Baixe o aplicativo!
+            </Button>
           </a>
         </nav>
         <Sheet>
           <SheetTrigger className="xl:hidden">
             {" "}
             <Button
-              className="bg-[#fff] hover:bg-blue-800 active:opacity-60"
+              className="bg-primary border-2 border-white hover:bg-blue-800 active:opacity-60"
               size="icon"
             >
-              <List color="#1fcdff" />
+              <List color="#fff" />
             </Button>
           </SheetTrigger>
           <SheetContent className="w-full">
@@ -100,8 +100,8 @@ export function Header() {
         transition={{ delay: 0.2 }}
         className="z-10 lg:w-96 lg:text-start text-[#fff] text-center mt-6"
       >
-        Como posso eu voar sem ter asas? Por que voaria eu sem asas? Deveria eu
-        mesmo, de mim memso, voar sem ter asas alguma?
+        Facilitando o acompanhamento escolar e promovendo a conexão entre pais,
+        professores e alunos!
       </motion.p>
     </header>
   );

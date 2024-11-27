@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 
 export default function HomeCards() {
   return (
@@ -20,12 +19,6 @@ export default function HomeCards() {
           ter asas, como posso eu voar? Se asa não tenho? Deveria eu voar, sem
           voar voando? Porque a vida é feita de avoar
         </p>
-        <Button
-          onClick={() => alert("EI JUIZ! VAI TOMAR NO C*!")}
-          className="bg-[#1FCDFF] hover:bg-[#006fff]"
-        >
-          Baixe nosso Aplicativo
-        </Button>
       </motion.div>
       <motion.div
         initial={{ scale: 0, opacity: 0 }}

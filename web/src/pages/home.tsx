@@ -26,10 +26,10 @@ export function Home() {
           transition={{ duration: 0.3 }}
           className="lg:text-start lg:text-4xl text-2xl text-center text-[#FFFF00] "
         >
-          Saiba como está seu filho:
+          Fique por dentro de cada evolução do
           <br />
           <h1 className="text-2xl lg:text-4xl font-extrabold z-10 relative">
-            SOMETHING
+            seu filho
           </h1>
         </motion.h1>
         <ul className="text-start flex gap-4 pb-24 flex-col mt-12">
@@ -50,7 +50,7 @@ export function Home() {
             className="gap-3 text-white flex flex-row"
           >
             <CheckmarkCircle color="white" />
-            Aqui você está junto de seu filho
+            Saiba suas notas a qualquer momento
           </motion.li>
           <motion.li
             initial={{ translateX: -700 }}
@@ -59,7 +59,8 @@ export function Home() {
             transition={{ delay: 0.09 }}
             className="gap-3 text-white flex flex-row"
           >
-            <CheckmarkCircle color="white" />I WANNA FLY
+            <CheckmarkCircle color="white" />
+            Não perca uma reunião
           </motion.li>
           <motion.li
             initial={{ translateX: -700 }}
@@ -69,7 +70,7 @@ export function Home() {
             className="gap-3 text-white flex flex-row"
           >
             <CheckmarkCircle color="white" />
-            Corinthians 2x campeão mundiaaaaaal
+            Esteja sempre por dentro do que está acontecendo
           </motion.li>
         </ul>
         <motion.img
