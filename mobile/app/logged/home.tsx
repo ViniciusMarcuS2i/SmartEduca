@@ -1,6 +1,5 @@
-import { SafeAreaView } from "react-native-safe-area-context";
 import auth from "@react-native-firebase/auth";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../_contexts/authContext";
 import {
   Alert,
@@ -14,10 +13,11 @@ import { banner, logo } from "../_assets/images";
 import { Ionicons } from "@expo/vector-icons";
 import PressableOption from "../_components/pressableOption";
 import { router } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import firestore, { getDoc } from "@react-native-firebase/firestore";
 
 function Home() {
   const { currentUser } = useContext(AuthContext);
+  const [child, setChild] = useState<any>();
 
   const handleLogout = () => {
     Alert.alert("Deseja sair?", "Você será deslogado", [
@@ -34,6 +34,16 @@ function Home() {
     ]);
   };
 
+  async function getChild() {
+    const childRef = currentUser.childId;
+    const childSnap = await getDoc(childRef);
+    setChild(childSnap.data() as any);
+  }
+
+  useEffect(() => {
+    getChild();
+  }, []);
+
   return (
     <>
       <View className="flex-1 bg-white">
@@ -46,7 +56,7 @@ function Home() {
             />
             <View>
               <Text className="font-poppinsSemi text-xl text-primary">
-                Olá, {currentUser?.name}
+                Olá, {currentUser?.name.split(" ")[0]}!
               </Text>
               <Text className="font-sans text-[#636d77]">
                 Veja como está seu filho(a)
@@ -64,6 +74,7 @@ function Home() {
             resizeMode="cover"
           />
         </View>
+
         <View
           style={{
             borderTopRightRadius: 36,

@@ -89,7 +89,7 @@ function ClassesPage() {
       <div className="flex w-screen flex-col bg-[#f2f2f2]">
         <header className="flex items-center gap-3 bg-primary py-8 pl-9">
           <NotebookPenIcon size={24} className="text-white" />
-          <span className="text-xl text-white">Turmas existentes</span>
+          <span className="text-xl text-white">Professores existentes</span>
         </header>
         <div className="mx-4 mt-4 rounded-xl bg-white px-9 py-9">
           <div className="mb-12 flex items-center justify-between">
@@ -106,6 +106,11 @@ function ClassesPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
+              {teachers.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={3}>Nenhum professor encontrado</TableCell>
+                </TableRow>
+              )}
               {teachers.map((teacher) => (
                 <TableRow key={teacher.uid}>
                   <TableCell className="font-medium">{teacher.name}</TableCell>
@@ -114,7 +119,7 @@ function ClassesPage() {
             </TableBody>
             <TableFooter>
               <TableRow>
-                <TableCell colSpan={3}>Total de alunos</TableCell>
+                <TableCell colSpan={3}>Total de professores</TableCell>
                 <TableCell className="text-right">{teachers.length}</TableCell>
               </TableRow>
             </TableFooter>

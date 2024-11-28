@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from "../_components/ui/table";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs } from "firebase/firestore";
 import { firestore } from "../_lib/firebase";
 import { NotebookPenIcon, PlusIcon } from "lucide-react";
 import { Button } from "../_components/ui/button";
@@ -33,11 +33,15 @@ interface StudentType {
   name: string;
   birth: number;
   registration: string;
+  parentName: string;
+  parentEmail: string;
 }
 
 const addStudentSchema = z.object({
   name: z.string().min(1, "Nome é obrigatório"),
   birth: z.string().min(1, "Data de nascimento é obrigatória"),
+  parentName: z.string().min(1, "Nome do responsável é obrigatório"),
+  parentEmail: z.string().email("E-mail é obrigatório"),
 });
 
 type addStudentType = z.infer<typeof addStudentSchema>;
@@ -59,14 +63,28 @@ function ClassesPage() {
   const randomNumber = Math.floor(10000 + Math.random() * 90000).toString();
 
   const handleAddNewStudent = async (data: addStudentType) => {
-    const s = collection(firestore, "students");
-    await addDoc(s, {
-      name: data.name,
-      birth: data.birth,
-      registration: `033${randomNumber}`,
-    });
-    reset();
-    setIsOpen(false);
+    try {
+      const s = collection(firestore, "students");
+      const studentDoc = await addDoc(s, {
+        name: data.name,
+        birth: data.birth,
+        registration: `033${randomNumber}`,
+        created_at: new Date().toISOString(),
+      });
+      const childId = studentDoc.id;
+      const p = collection(firestore, "users");
+      await addDoc(p, {
+        name: data.parentName,
+        email: data.parentEmail,
+        user_type: "parent",
+        childId: doc(firestore, "students", childId),
+        created_at: new Date().toISOString(),
+      });
+      reset();
+      setIsOpen(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   async function getClasses() {
@@ -87,7 +105,7 @@ function ClassesPage() {
       <div className="flex w-screen flex-col bg-[#f2f2f2]">
         <header className="flex items-center gap-3 bg-primary py-8 pl-9">
           <NotebookPenIcon size={24} className="text-white" />
-          <span className="text-xl text-white">Turmas existentes</span>
+          <span className="text-xl text-white">Alunos matrículados</span>
         </header>
         <div className="mx-4 mt-4 rounded-xl bg-white px-9 py-9">
           <div className="mb-12 flex items-center justify-between">
@@ -106,6 +124,13 @@ function ClassesPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
+              {students.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={4} className="text-start">
+                    Nenhum aluno encontrado
+                  </TableCell>
+                </TableRow>
+              )}
               {students.map((student) => (
                 <TableRow key={student.uid}>
                   <TableCell className="font-medium">{student.name}</TableCell>
@@ -177,6 +202,52 @@ function ClassesPage() {
               {errors.birth && (
                 <span className="text-xs text-red-500">
                   {errors.birth.message}
+                </span>
+              )}
+            </div>
+            <div>
+              <label className="text-sm" htmlFor="parentName">
+                Nome do responsável
+              </label>
+              <Controller
+                name="parentName"
+                control={control}
+                render={({ field: { value, onChange } }) => (
+                  <Input
+                    id="parentName"
+                    className="w-full rounded-lg border-2 px-4 py-2"
+                    placeholder="Ex: Fulano da Silva"
+                    value={value}
+                    onChange={onChange}
+                  />
+                )}
+              />
+              {errors.parentName && (
+                <span className="text-xs text-red-500">
+                  {errors.parentName.message}
+                </span>
+              )}
+            </div>
+            <div>
+              <label className="text-sm" htmlFor="parentEmail">
+                Email do responsável
+              </label>
+              <Controller
+                name="parentEmail"
+                control={control}
+                render={({ field: { value, onChange } }) => (
+                  <Input
+                    id="parentEmail"
+                    className="w-full rounded-lg border-2 px-4 py-2"
+                    placeholder="exemplo@gmail.com"
+                    value={value}
+                    onChange={onChange}
+                  />
+                )}
+              />
+              {errors.parentEmail && (
+                <span className="text-xs text-red-500">
+                  {errors.parentEmail.message}
                 </span>
               )}
             </div>

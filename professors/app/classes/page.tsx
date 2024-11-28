@@ -37,7 +37,7 @@ function ClassesPage() {
       //   return { ...doc.data(), uid: doc.id };
       // });
       // setClasses(q as ClassType[]);
-      // Obter documentos da coleção "classes"
+
       const c = collection(firestore, "classes");
       const classDocs = await getDocs(c);
 
@@ -46,13 +46,12 @@ function ClassesPage() {
           const classData = docSnap.data();
           let teacherId: string | undefined;
 
-          // Identifica o tipo do teacher_id
           if (classData.teacher_id instanceof Object) {
-            teacherId = classData.teacher_id.path; // Se for referência, extrai o caminho
+            teacherId = classData.teacher_id.path;
           } else if (typeof classData.teacher_id === "string") {
             teacherId = classData.teacher_id.startsWith("/")
               ? classData.teacher_id.slice(1)
-              : classData.teacher_id; // Remove barra inicial, se existir
+              : classData.teacher_id;
           }
 
           if (teacherId) {
@@ -94,7 +93,9 @@ function ClassesPage() {
         </header>
         <div className="mx-4 mt-4 rounded-xl bg-white px-9 py-9">
           <div className="mb-12 flex items-center justify-between">
-            <h1 className="text-pri text-3xl font-semibold">Turmas</h1>
+            <h1 className="text-pri text-3xl font-semibold text-primary">
+              Turmas
+            </h1>
             <Button>
               <PlusIcon />
               Criar nova turma
@@ -110,6 +111,11 @@ function ClassesPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
+              {classes.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={4}>Nenhuma turma encontrada</TableCell>
+                </TableRow>
+              )}
               {classes.map((c) => (
                 <TableRow key={c.name}>
                   <TableCell className="font-medium">{c.name}</TableCell>

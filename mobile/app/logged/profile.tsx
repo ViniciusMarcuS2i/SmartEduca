@@ -1,32 +1,44 @@
 import { useContext } from "react";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { AuthContext } from "../_contexts/authContext";
-import { SafeAreaView } from "react-native-safe-area-context";
-
 import ProfileOption from "../_components/profileOption";
+import { LinearGradient } from "expo-linear-gradient";
+import { logo } from "../_assets/images";
 
 function Profile() {
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <SafeAreaView className="flex-1 bg-white pt-8">
-      <View className="px-6">
-        <Text className="font-poppinsSemi text-2xl">
-          Olá, {currentUser.name}
-        </Text>
-        <Text className="w-96 font-sans text-[#636d77]">
-          Aqui você pode gerenciar seu perifl e configurações da sua conta!
-        </Text>
+    <LinearGradient
+      colors={["#1fcdff", "#b2e3f7", "#d4f7ff"]}
+      className="flex-1 bg-[#f2f2f2] pt-16"
+    >
+      <View className="flex-row items-center gap-4 px-6">
+        <Image
+          source={logo}
+          className="h-20 w-20 rounded-full border-2 border-white"
+          resizeMode="contain"
+        />
+        <View>
+          <Text className="font-poppinsBold text-[20px] text-white">
+            Oi, {currentUser.name.split(" ")[0]}!
+          </Text>
+          <Text className="w-96 font-sans text-white">
+            Bem vindo ao seu perfil.
+          </Text>
+        </View>
       </View>
-      <View className="mt-14 gap-10 px-6">
-        <ProfileOption icon="person-outline" title="Perfil" />
-        <ProfileOption icon="notifications-outline" title="Notificações" />
-        <ProfileOption icon="archive-outline" title="Aulas arquivadas" />
-        <ProfileOption icon="shield-outline" title="Segurança" />
-        <ProfileOption icon="information-circle-outline" title="Sobre nós" />
-        <ProfileOption icon="help-outline" title="Ajuda" />
+      <View className="mt-8 flex-1 rounded-s-[50px] bg-white">
+        <View className="mt-14 gap-10 px-8">
+          <ProfileOption icon="person-outline" title="Dados do perfil" />
+          <ProfileOption icon="notifications-outline" title="Notificações" />
+          <ProfileOption icon="archive-outline" title="Aulas arquivadas" />
+          <ProfileOption icon="shield-outline" title="Segurança" />
+          <ProfileOption icon="information-circle-outline" title="Sobre nós" />
+          <ProfileOption icon="help-outline" title="Ajuda" />
+        </View>
       </View>
-    </SafeAreaView>
+    </LinearGradient>
   );
 }
 

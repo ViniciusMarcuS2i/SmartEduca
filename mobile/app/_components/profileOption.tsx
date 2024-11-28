@@ -14,8 +14,8 @@ function ProfileOption({ icon, title, onPress }: ProfileOptionProps) {
       onPress={onPress}
       className="flex-row items-center gap-4"
     >
-      <Ionicons name={icon} size={26} color="#1fcdff" />
-      <Text className="font-poppinsMedium text-xl">{title}</Text>
+      <Ionicons name={icon} size={22} color="#797979" />
+      <Text className="font-poppinsMedium text-xl text-[#797979]">{title}</Text>
     </TouchableOpacity>
   );
 }

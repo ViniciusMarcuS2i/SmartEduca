@@ -66,7 +66,7 @@ function Forgot() {
           Esqueceu a senha?
         </Text>
         <Text className="font-sans text-lg text-[#636d77]">
-          Sem problemas! Apenas no diga seu email para que possamos enviar um
+          Sem problemas! Apenas nos diga seu email para que possamos enviar um
           email para redefinição de senha.
         </Text>
       </View>
