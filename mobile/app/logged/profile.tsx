@@ -21,15 +21,16 @@ function Profile() {
         />
         <View>
           <Text className="font-poppinsBold text-[20px] text-white">
-            Oi, {currentUser.name.split(" ")[0]}!
+            Oi, {currentUser.name}!
           </Text>
           <Text className="w-96 font-sans text-white">
             Bem vindo ao seu perfil.
           </Text>
         </View>
       </View>
-      <View className="mt-8 flex-1 rounded-s-[50px] bg-white">
-        <View className="mt-14 gap-10 px-8">
+      <View className="mt-8 flex-1 rounded-s-[50px] bg-white px-8 pt-12">
+        <Text className="mb-10 font-poppinsMedium text-xl">Dodos da conta</Text>
+        <View className="gap-10">
           <ProfileOption icon="person-outline" title="Dados do perfil" />
           <ProfileOption icon="notifications-outline" title="Notificações" />
           <ProfileOption icon="archive-outline" title="Aulas arquivadas" />

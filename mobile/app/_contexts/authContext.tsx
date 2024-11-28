@@ -1,14 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 import auth from "@react-native-firebase/auth";
-import firestore from "@react-native-firebase/firestore";
+import firestore, { getDoc } from "@react-native-firebase/firestore";
 
 type AuthContextType = {
   user: any;
   currentUser: any;
+  child: any;
 };
 
 interface UserI {
   email: string;
+  childId: string;
 }
 
 export const AuthContext = createContext({} as AuthContextType);
@@ -17,6 +19,7 @@ function ContextProvider({ children }: any) {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState({});
   const [currentUser, setCurrentUser] = useState<UserI>({} as UserI);
+  const [child, setChild] = useState<any>();
 
   function onAuthhStateChanged(user: any) {
     setUser(user);
@@ -43,10 +46,20 @@ function ContextProvider({ children }: any) {
     }
   }, []);
 
+  async function getChild() {
+    const childRef = currentUser.childId;
+    const childSnap = await getDoc(childRef as any);
+    setChild(childSnap.data() as any);
+  }
+
+  useEffect(() => {
+    getChild();
+  }, [currentUser]);
+
   if (initializing) return null;
 
   return (
-    <AuthContext.Provider value={{ user, currentUser }}>
+    <AuthContext.Provider value={{ user, currentUser, child }}>
       {children}
     </AuthContext.Provider>
   );

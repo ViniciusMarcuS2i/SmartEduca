@@ -2,6 +2,7 @@ import auth from "@react-native-firebase/auth";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../_contexts/authContext";
 import {
+  ActivityIndicator,
   Alert,
   Image,
   ScrollView,
@@ -13,11 +14,9 @@ import { banner, logo } from "../_assets/images";
 import { Ionicons } from "@expo/vector-icons";
 import PressableOption from "../_components/pressableOption";
 import { router } from "expo-router";
-import firestore, { getDoc } from "@react-native-firebase/firestore";
 
 function Home() {
-  const { currentUser } = useContext(AuthContext);
-  const [child, setChild] = useState<any>();
+  const { currentUser, child } = useContext(AuthContext);
 
   const handleLogout = () => {
     Alert.alert("Deseja sair?", "Você será deslogado", [
@@ -34,16 +33,6 @@ function Home() {
     ]);
   };
 
-  async function getChild() {
-    const childRef = currentUser.childId;
-    const childSnap = await getDoc(childRef);
-    setChild(childSnap.data() as any);
-  }
-
-  useEffect(() => {
-    getChild();
-  }, []);
-
   return (
     <>
       <View className="flex-1 bg-white">
@@ -56,10 +45,17 @@ function Home() {
             />
             <View>
               <Text className="font-poppinsSemi text-xl text-primary">
-                Olá, {currentUser?.name.split(" ")[0]}!
+                Olá, {currentUser?.name}!
               </Text>
               <Text className="font-sans text-[#636d77]">
                 Veja como está seu filho(a)
+              </Text>
+              <Text className="font-sans text-sm">
+                {child ? (
+                  `${child.name} - ${child.registration}`
+                ) : (
+                  <ActivityIndicator />
+                )}
               </Text>
             </View>
           </View>
